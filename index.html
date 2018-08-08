@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="test">{{content}}</div>
+    <script>
+        var test=new Vue({
+            el: '#test',
+            data:{
+                content: 'hello word'
+            },
+            beforeCreate: function(){
+                console.group('beforeCreate 创建前==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            created: function(){
+                console.group('created 创建完毕==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            beforeMount: function(){
+                console.group('beforeMount 挂载前状态==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log(this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            mounted: function(){
+                console.group('mounted 挂载结束状态==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log(this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            beforeUpdate: function(){
+                console.group('beforeUpdate 更新前状态==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log(this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            updated: function(){
+                console.group('updated 更新完成状态==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log(this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            beforeDestroy: function(){
+                console.group('beforeDestroy 销毁前状态==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log(this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            },
+            destroyed: function(){
+                console.group('destroyed 销毁完成状态==============');
+                console.log("%c%s","color:red","el    :"+this.$el);
+                console.log(this.$el);
+                console.log("%c%s","color:red","data    :"+this.$data);
+                console.log("%c%s","color:red","content    :"+this.content)
+            }
+        })
+        setTimeout(function(){
+            test.$data.content='hahahahahahahaha'
+        },2000)
+    </script>
+</body>
+</html>
